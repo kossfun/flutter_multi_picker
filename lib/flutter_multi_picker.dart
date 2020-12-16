@@ -13,7 +13,6 @@ import 'custom_tab_bar.dart';
 
 class MultiPicker extends StatefulWidget {
   final List<Map<String, dynamic>> dataList;
-  final double height;
   final List<int> initValue;
   final String keyName;
   final String valueName;
@@ -26,7 +25,6 @@ class MultiPicker extends StatefulWidget {
   MultiPicker(
       {Key key,
         @required this.dataList,
-        this.height = 400.0,
         this.initValue,
         this.keyName = 'id',
         this.valueName = 'name',
@@ -97,7 +95,6 @@ class _MultiPickerState extends State<MultiPicker> with TickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: widget.height,
       child: Column(
         children: [
           Container(

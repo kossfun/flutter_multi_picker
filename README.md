@@ -16,4 +16,9 @@ dependencies:
 import 'package:flutter_multi_picker/flutter_multi_picker.dart';
 ```
 
-
+## Screenshot
+![pic](screenshot/0.png)
+![pic](screenshot/1.png)
+![pic](screenshot/2.png)
+![pic](screenshot/3.png)
+![pic](screenshot/4.png)

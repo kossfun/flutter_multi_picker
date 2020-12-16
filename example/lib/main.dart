@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_picker/flutter_multi_picker.dart';
 
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
   List<int> customSelectIndex = [];
   List<int> pcaSelectIndex = [];
   List<int> pcasSelectIndex = [];
+  String title = 'Picker';
 
   @override
   void initState() {
@@ -60,24 +62,28 @@ class _HomePageState extends State<HomePage> {
             Text('$selectValue'),
             RaisedButton(
               onPressed: () {
+                title = 'Picker';
                 showBottomPicker();
               },
               child: Text('Picker'),
             ),
             RaisedButton(
               onPressed: () {
+                title = 'Custom Picker';
                 showBottomCustomPicker();
               },
               child: Text('Custom Picker'),
             ),
             RaisedButton(
               onPressed: () {
+                title = 'PCA Picker';
                 showPcaBottomPicker();
               },
               child: Text('PCA Picker'),
             ),
             RaisedButton(
               onPressed: () {
+                title = 'PCAS Picker';
                 showPcasBottomPicker();
               },
               child: Text('PCAS Picker'),
@@ -104,7 +110,11 @@ class _HomePageState extends State<HomePage> {
         .then((value) {
       var jsonData = jsonDecode(value);
 
-      customList = listToTree(dataList: jsonData, keyName: 'value', pidName: 'level', childrenName: 'data');
+      customList = listToTree(
+          dataList: jsonData,
+          keyName: 'value',
+          pidName: 'level',
+          childrenName: 'data');
       print(customList);
     });
   }
@@ -131,30 +141,51 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  Widget buildBottomSheet({@required Widget child}) {
+    return Container(
+      height: 300,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+      ),
+      child: child,
+    );
+  }
+
   void showBottomPicker() {
     showModalBottomSheet(
       context: context,
+      backgroundColor: Colors.transparent,
       builder: (ctx) {
-        return Container(
-          child: Column(
-            children: [
-              Expanded(
-                child: MultiPicker(
-                  dataList: pickerList,
-                  initValue: pickerSelectIndex,
-                  onValueChange: (value) {
-                    Navigator.pop(context, value);
-                  },
-                  onSelectChange: (value) {
-                    setState(() {
-                      pickerSelectIndex = value;
-                    });
-                  },
-                ),
+        return buildBottomSheet(child: Column(
+          children: [
+            Container(
+              height: 50,
+              alignment: Alignment.center,
+              child: Text(
+                title,
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-            ],
-          ),
-        );
+            ),
+            Expanded(
+              child: MultiPicker(
+                dataList: pickerList,
+                initValue: pickerSelectIndex,
+                onValueChange: (value) {
+                  Navigator.pop(context, value);
+                },
+                onSelectChange: (value) {
+                  setState(() {
+                    pickerSelectIndex = value;
+                  });
+                },
+              ),
+            ),
+          ],
+        ),);
       },
     ).then((value) {
       if (value != null) {
@@ -165,32 +196,41 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-void showBottomCustomPicker() {
+  void showBottomCustomPicker() {
     showModalBottomSheet(
       context: context,
+      backgroundColor: Colors.transparent,
       builder: (ctx) {
-        return Container(
-          child: Column(
-            children: [
-              Expanded(
-                child: MultiPicker(
-                  dataList: customList,
-                  initValue: customSelectIndex,
-                  keyName: 'value',
-                  valueName: 'title',
-                  childrenName: 'data',
-                  onValueChange: (value) {
-                    Navigator.pop(context, value);
-                  },
-                  onSelectChange: (value) {
-                    setState(() {
-                      customSelectIndex = value;
-                    });
-                  },
+        return buildBottomSheet(
+          child:  Column(
+              children: [
+                Container(
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: Text(
+                    title,
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-            ],
-          ),
+                Expanded(
+                  child: MultiPicker(
+                    dataList: customList,
+                    initValue: customSelectIndex,
+                    keyName: 'value',
+                    valueName: 'title',
+                    childrenName: 'data',
+                    onValueChange: (value) {
+                      Navigator.pop(context, value);
+                    },
+                    onSelectChange: (value) {
+                      setState(() {
+                        customSelectIndex = value;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
         );
       },
     ).then((value) {
@@ -205,10 +245,19 @@ void showBottomCustomPicker() {
   void showPcaBottomPicker() {
     showModalBottomSheet(
       context: context,
+      backgroundColor: Colors.transparent,
       builder: (ctx) {
-        return Container(
+        return buildBottomSheet(
           child: Column(
             children: [
+              Container(
+                height: 50,
+                alignment: Alignment.center,
+                child: Text(
+                  title,
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              ),
               Expanded(
                 child: MultiPicker(
                   dataList: pcaList,
@@ -240,10 +289,19 @@ void showBottomCustomPicker() {
   void showPcasBottomPicker() {
     showModalBottomSheet(
       context: context,
+      backgroundColor: Colors.transparent,
       builder: (ctx) {
-        return Container(
+        return buildBottomSheet(
           child: Column(
             children: [
+              Container(
+                height: 50,
+                alignment: Alignment.center,
+                child: Text(
+                  title,
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              ),
               Expanded(
                 child: MultiPicker(
                   dataList: pcasList,
