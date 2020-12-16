@@ -1,0 +1,11 @@
+[
+  {"title":  "节点1", "value":  "jd1", "level": ""},
+  {"title":  "节点1-1", "value":  "jd1-1", "level": "jd1"},
+  {"title":  "节点1-2", "value":  "jd1-2", "level": "jd1"},
+  {"title":  "节点2", "value":  "jd2", "level": ""},
+  {"title":  "节点2-1", "value":  "jd2-1", "level": "jd2"},
+  {"title":  "节点2-2", "value":  "jd2-2", "level": "jd2"},
+  {"title":  "节点3", "value":  "jd3", "level": ""},
+  {"title":  "节点3-1", "value":  "jd3-1", "level": "jd3"},
+  {"title":  "节点3-2", "value":  "jd3-2", "level": "jd3"}
+]
