@@ -160,32 +160,34 @@ class _HomePageState extends State<HomePage> {
       context: context,
       backgroundColor: Colors.transparent,
       builder: (ctx) {
-        return buildBottomSheet(child: Column(
-          children: [
-            Container(
-              height: 50,
-              alignment: Alignment.center,
-              child: Text(
-                title,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        return buildBottomSheet(
+          child: Column(
+            children: [
+              Container(
+                height: 50,
+                alignment: Alignment.center,
+                child: Text(
+                  title,
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            Expanded(
-              child: MultiPicker(
-                dataList: pickerList,
-                initValue: pickerSelectIndex,
-                onValueChange: (value) {
-                  Navigator.pop(context, value);
-                },
-                onSelectChange: (value) {
-                  setState(() {
-                    pickerSelectIndex = value;
-                  });
-                },
+              Expanded(
+                child: MultiPicker(
+                  dataList: pickerList,
+                  initValue: pickerSelectIndex,
+                  onValueChange: (value) {
+                    Navigator.pop(context, value);
+                  },
+                  onSelectChange: (value) {
+                    setState(() {
+                      pickerSelectIndex = value;
+                    });
+                  },
+                ),
               ),
-            ),
-          ],
-        ),);
+            ],
+          ),
+        );
       },
     ).then((value) {
       if (value != null) {
@@ -202,35 +204,35 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.transparent,
       builder: (ctx) {
         return buildBottomSheet(
-          child:  Column(
-              children: [
-                Container(
-                  height: 50,
-                  alignment: Alignment.center,
-                  child: Text(
-                    title,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
+          child: Column(
+            children: [
+              Container(
+                height: 50,
+                alignment: Alignment.center,
+                child: Text(
+                  title,
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
-                Expanded(
-                  child: MultiPicker(
-                    dataList: customList,
-                    initValue: customSelectIndex,
-                    keyName: 'value',
-                    valueName: 'title',
-                    childrenName: 'data',
-                    onValueChange: (value) {
-                      Navigator.pop(context, value);
-                    },
-                    onSelectChange: (value) {
-                      setState(() {
-                        customSelectIndex = value;
-                      });
-                    },
-                  ),
+              ),
+              Expanded(
+                child: MultiPicker(
+                  dataList: customList,
+                  initValue: customSelectIndex,
+                  keyName: 'value',
+                  valueName: 'title',
+                  childrenName: 'data',
+                  onValueChange: (value) {
+                    Navigator.pop(context, value);
+                  },
+                  onSelectChange: (value) {
+                    setState(() {
+                      customSelectIndex = value;
+                    });
+                  },
                 ),
-              ],
-            ),
+              ),
+            ],
+          ),
         );
       },
     ).then((value) {

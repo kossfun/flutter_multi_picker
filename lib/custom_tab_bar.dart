@@ -32,7 +32,8 @@ class CustomTabBar extends StatelessWidget {
       this.labelPadding,
       this.onTap,
       this.isScrollable = false,
-      this.bottomBorder = const BorderSide(color: Colors.transparent, width: 1)});
+      this.bottomBorder =
+          const BorderSide(color: Colors.transparent, width: 1)});
 
   @override
   Widget build(BuildContext context) {
@@ -63,15 +64,13 @@ class CustomTabBar extends StatelessWidget {
   }
 }
 
-
 /// 自定义TabBar Indicator
 class RoundUnderlineTabIndicator extends Decoration {
-
-  const RoundUnderlineTabIndicator({
-    this.borderSide = const BorderSide(width: 2.0, color: Colors.white),
-    this.insets = EdgeInsets.zero,
-    this.width = 20
-  }) : assert(borderSide != null),
+  const RoundUnderlineTabIndicator(
+      {this.borderSide = const BorderSide(width: 2.0, color: Colors.white),
+      this.insets = EdgeInsets.zero,
+      this.width = 20})
+      : assert(borderSide != null),
         assert(insets != null);
 
   final BorderSide borderSide;
@@ -103,7 +102,7 @@ class RoundUnderlineTabIndicator extends Decoration {
   }
 
   @override
-  _UnderlinePainter createBoxPainter([ VoidCallback onChanged ]) {
+  _UnderlinePainter createBoxPainter([VoidCallback onChanged]) {
     return _UnderlinePainter(this, onChanged);
   }
 
@@ -114,6 +113,7 @@ class RoundUnderlineTabIndicator extends Decoration {
 
     ///希望的宽度
     double wantWidth = width;
+
     ///取中间坐标
     double cw = (indicator.left + indicator.right) / 2;
     return Rect.fromLTWH(cw - wantWidth / 2,
@@ -139,10 +139,13 @@ class _UnderlinePainter extends BoxPainter {
     assert(configuration.size != null);
     final Rect rect = offset & configuration.size;
     final TextDirection textDirection = configuration.textDirection;
-    final Rect indicator = decoration._indicatorRectFor(rect, textDirection).deflate(decoration.borderSide.width / 2.0);
+    final Rect indicator = decoration
+        ._indicatorRectFor(rect, textDirection)
+        .deflate(decoration.borderSide.width / 2.0);
     // final Paint paint = decoration.borderSide.toPaint()..strokeCap = StrokeCap.square;
     /// 圆角
-    final Paint paint = decoration.borderSide.toPaint()..strokeCap = StrokeCap.round;
+    final Paint paint = decoration.borderSide.toPaint()
+      ..strokeCap = StrokeCap.round;
     canvas.drawLine(indicator.bottomLeft, indicator.bottomRight, paint);
   }
 }

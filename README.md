@@ -4,6 +4,10 @@ Flutter plugin picker. Similar to JD(京东). Provide flexible parameters to mee
 实现类似京东地址选择器的效果
 
 ## Getting Started
+
+### github 地址:  [https://github.com/KossFun/flutter_multi_picker](https://github.com/KossFun/flutter_multi_picker)
+### gitee 地址 [https://gitee.com/kossfun/flutter_multi_picker](https://gitee.com/kossfun/flutter_multi_picker)
+
 ### 1. Add library to your pubspec.yaml
 latest version: [![pub package](https://img.shields.io/pub/v/flutter_multi_picker.svg)](https://pub.dev/packages/flutter_multi_picker)
 ```

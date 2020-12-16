@@ -13,7 +13,7 @@ class MultiPickerTheme {
     this.tabUnselectedLabelStyle,
     this.tabLabelPadding,
     this.tabBottomBorder =
-    const BorderSide(color: Colors.transparent, width: 1),
+        const BorderSide(color: Colors.transparent, width: 1),
     this.listLabelColor = Colors.blueAccent,
     this.listUnselectedLabelColor = Colors.black87,
     this.listLabelStyle,

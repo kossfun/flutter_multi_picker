@@ -24,22 +24,23 @@ class MultiPicker extends StatefulWidget {
 
   MultiPicker(
       {Key key,
-        @required this.dataList,
-        this.initValue,
-        this.keyName = 'id',
-        this.valueName = 'name',
-        this.childrenName = 'children',
-        this.newTabName = '请选择',
-        this.onValueChange,
-        this.theme,
-        this.onSelectChange})
+      @required this.dataList,
+      this.initValue,
+      this.keyName = 'id',
+      this.valueName = 'name',
+      this.childrenName = 'children',
+      this.newTabName = '请选择',
+      this.onValueChange,
+      this.theme,
+      this.onSelectChange})
       : super(key: key);
 
   @override
   _MultiPickerState createState() => _MultiPickerState();
 }
 
-class _MultiPickerState extends State<MultiPicker> with TickerProviderStateMixin {
+class _MultiPickerState extends State<MultiPicker>
+    with TickerProviderStateMixin {
   TabController _tabController;
   List<Map<String, dynamic>> _tabs = [];
   List<int> _selTabs = [];
@@ -57,7 +58,7 @@ class _MultiPickerState extends State<MultiPicker> with TickerProviderStateMixin
     }
     init();
   }
-
+  /// 初始化
   void init() {
     if (widget.initValue != null && widget.initValue.length > 0) {
       _selTabs = [...widget.initValue];
@@ -70,7 +71,7 @@ class _MultiPickerState extends State<MultiPicker> with TickerProviderStateMixin
           });
         } else {
           var children =
-          _pagesListData[i - 1][_selTabs[i - 1]][widget.childrenName];
+              _pagesListData[i - 1][_selTabs[i - 1]][widget.childrenName];
           _pagesListData.putIfAbsent(i, () => children);
 
           _tabs.add({
@@ -159,14 +160,15 @@ class _MultiPickerState extends State<MultiPicker> with TickerProviderStateMixin
     };
     _selTabs[page] = index;
 
-
     if (pageListData[index][widget.childrenName] == null) {
       if (page != _tabs.length - 1) {
         _tabs.removeRange(page + 1, _tabs.length);
         _selTabs.removeRange(page + 1, _selTabs.length);
       }
 
-      _tabController = TabController(length: _tabs.length, initialIndex: _tabs.length -1, vsync: this);
+      _tabController = TabController(
+          length: _tabs.length, initialIndex: _tabs.length - 1, vsync: this);
+
       /// print('选择的数据:    $_tabs');
       /// print('选择的index:    $_selTabs');
       if (widget.onValueChange != null) {
@@ -215,8 +217,6 @@ class _MultiPickerState extends State<MultiPicker> with TickerProviderStateMixin
   }
 }
 
-
-
 class PickerList extends StatefulWidget {
   final List<dynamic> list;
   final String valueName;
@@ -230,14 +230,14 @@ class PickerList extends StatefulWidget {
 
   PickerList(
       {Key key,
-        this.list,
-        this.valueName = 'name',
-        this.selIndex = -1,
-        this.labelColor = Colors.blueAccent,
-        this.unselectedLabelColor = Colors.black87,
-        this.labelStyle,
-        this.unselectedLabelStyle,
-        this.onTapItem})
+      this.list,
+      this.valueName = 'name',
+      this.selIndex = -1,
+      this.labelColor = Colors.blueAccent,
+      this.unselectedLabelColor = Colors.black87,
+      this.labelStyle,
+      this.unselectedLabelStyle,
+      this.onTapItem})
       : super(key: key);
 
   @override
