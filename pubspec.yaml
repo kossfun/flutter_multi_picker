@@ -1,8 +1,8 @@
 name: flutter_multi_picker
-description: A new Flutter plugin.
+description: Flutter plugin picker. Similar to JD(京东). Provide flexible parameters to meet various needs.
 version: 0.0.1
-author:
-homepage:
+# author: KossFun
+homepage: https://github.com/KossFun/flutter_multi_picker
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

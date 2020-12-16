@@ -1,10 +1,11 @@
 # flutter_multi_picker
 
-A new Flutter plugin.
+Flutter plugin picker. Similar to JD(京东). Provide flexible parameters to meet various needs.
+实现类似京东地址选择器的效果
 
 ## Getting Started
 ### 1. Add library to your pubspec.yaml
-latest version: 0.0.1
+latest version: [![pub package](https://img.shields.io/pub/v/flutter_multi_picker.svg)](https://pub.dev/packages/flutter_multi_picker)
 ```
 dependencies:
   flutter_multi_picker: any
