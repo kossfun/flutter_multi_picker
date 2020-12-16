@@ -3,13 +3,16 @@
 A new Flutter plugin.
 
 ## Getting Started
+### 1. Add library to your pubspec.yaml
+latest version: 0.0.1
+```
+dependencies:
+  flutter_multi_picker: any
+```
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+### 2. Import library in dart file
+```
+import 'package:flutter_multi_picker/flutter_multi_picker.dart';
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
