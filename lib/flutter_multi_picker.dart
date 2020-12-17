@@ -58,6 +58,7 @@ class _MultiPickerState extends State<MultiPicker>
     }
     init();
   }
+
   /// 初始化
   void init() {
     if (widget.initValue != null && widget.initValue.length > 0) {

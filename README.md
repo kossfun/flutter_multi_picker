@@ -15,9 +15,16 @@ dependencies:
   flutter_multi_picker: any
 ```
 
-### 2. Import library in dart file
+### 2. Import library and use
 ```
 import 'package:flutter_multi_picker/flutter_multi_picker.dart';
+...
+MultiPicker(
+    dataList: customList,
+    theme: MultiPickerTheme(...),
+)
+...
+
 ```
 
 ## Screenshot
